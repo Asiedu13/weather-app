@@ -17,7 +17,7 @@ export default function History() {
         <Head>
             <title>History | Weather App</title>
         </Head>
-        <main className='w-screen h-screen flex flex-row justify-center items-center border-dotted border-2 p-4 '>
+        <main className='w-screen h-screen flex flex-row justify-center items-center p-4 '>
             <section className="w-[fit-content] h-1/2">
 
                 <header className=' flex flex-row items-center'>
@@ -27,12 +27,11 @@ export default function History() {
                    </Link>
                 </header>
 
-                <section className=' h-[360px] border-dotted border-2 border-white-300 overflow-auto'>
+                <section className=' h-[360px] overflow-auto'>
                     {
                         history.length > 0 ? history.map(t => {
                             return <HistoryCard data={t} key={Math.random() * Math.random()} />
                         }): ""
-
                     }
                 </section>
             </section>
