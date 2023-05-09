@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image'
-export default function Home({city, country_code}) {
-  
+
+export default function Home({city, country_code, weatherInfo}) {  
   const dateString = new Date().toDateString(' ').split(' ')
   const today = `${dateString[2]} ${dateString[1]} ${dateString[3]}`
   
@@ -21,12 +21,12 @@ export default function Home({city, country_code}) {
         {/* Temperature reading and cloud adjust */}
             <section className='flex flex-row justify-between items-center '>
               <div className=''>
-                <span className='text-3xl font-semibold'>36</span> <sup>&deg;C</sup>
-                <p className='text-blue-400'>Broken Clouds</p>
+                <span className='text-3xl font-semibold'>{Math.round(weatherInfo.main.temp)}</span> <sup>&deg;C</sup>
+                <p className='text-blue-400 uppercase'>{weatherInfo.weather[0].description}</p>
               </div>
               {/* Clouds */}
               <div>
-                <Image src='/1.png' alt='clouds' width={100} height={100} />
+                <img src={`http://openweathermap.org/img/wn/${weatherInfo.weather[0].icon}@2x.png`} alt='clouds' width={100} height={100} />
               </div>
             </section>
               {/* Buttons */}
@@ -40,11 +40,20 @@ export default function Home({city, country_code}) {
   )
 }
 
+export function myImageLoader({ src, width, quality }) {
+  return `http://openweathermap.org/img/wn/${weatherInfo.weather[0].icon}@2x.png`
+}
+
 export async function getServerSideProps() {
   const locationFetching = await fetch('https://api.geoapify.com/v1/ipinfo?apiKey=3f5109a61213408d95d762e8dbe73a0f')
   const location = await locationFetching.json()
   const city = location.city.name;
   const country_code = location.country.iso_code
+
+  const api_key = '71d9bea5ed7a76c4ac386e9ec05a4f74';
+  const url = `http://api.openweathermap.org/data/2.5/weather?q=${city},&appid=${api_key}&units=metric`;
+  const weatherRequest = await fetch(url);
+  const weatherInfo = await weatherRequest.json();
   
-  return {props: {city, country_code}}
+  return {props: {city, country_code, weatherInfo}}
 }
