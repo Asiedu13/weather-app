@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Home({city, country_code, weatherInfo}) {  
   const dateString = new Date().toDateString(' ').split(' ')
@@ -31,17 +31,15 @@ export default function Home({city, country_code, weatherInfo}) {
             </section>
               {/* Buttons */}
             <section className='flex justify-between items-center pt-3'>
-              <button className='w-[140px] h-[50px] rounded-lg bg-green-500 hover:bg-green-400'>Timestamp</button>
-              <button className='w-[140px] h-[50px] rounded-lg bg-red-500 hover:bg-red-400'>My History</button>
+              <button onClick={()=> saveWeather(city, country_code, today, Math.round(weatherInfo.main.temp),weatherInfo.weather[0].description )}className='w-[140px] h-[50px] rounded-lg bg-green-500 hover:bg-green-400'>Timestamp</button>
+             <Link href='/history'> 
+             <button className='w-[140px] h-[50px] rounded-lg bg-red-500 focus:bg-red-400 hover:bg-red-400'>My History</button>
+             </Link>
             </section>
         </section>
    </main>
     </>
   )
-}
-
-export function myImageLoader({ src, width, quality }) {
-  return `http://openweathermap.org/img/wn/${weatherInfo.weather[0].icon}@2x.png`
 }
 
 export async function getServerSideProps() {
@@ -56,4 +54,33 @@ export async function getServerSideProps() {
   const weatherInfo = await weatherRequest.json();
   
   return {props: {city, country_code, weatherInfo}}
+}
+
+
+const saveWeather = (city, code, date, temperature, description) => {
+  let hours = new Date().getHours().toString().padStart(2, '0');
+  let mins = new Date().getMinutes().toString().padStart(2, '0');
+  let seconds = new Date().getSeconds().toString().padStart(2, '0');;
+  console.log(hours)
+  let time = `${hours}:${mins}:${seconds}`
+  let data = {
+    city,
+    code,
+    date,
+    time: time,
+    temperature,
+    description,
+  }
+
+  let existingData = localStorage.getItem('weatherHistory')
+  existingData = JSON.parse(existingData)
+
+  if (existingData == null) {
+    existingData = []
+    existingData.push(data)
+    localStorage.setItem('weatherHistory', JSON.stringify(existingData))
+  } else {
+    existingData.push(data)
+    localStorage.setItem('weatherHistory', JSON.stringify(existingData))
+  }
 }
