@@ -25,9 +25,10 @@ export default function Home() {
                 <Image src='/1.png' alt='clouds' width={100} height={100} />
               </div>
             </section>
-
-            <section>
-
+              {/* Buttons */}
+            <section className='flex justify-between items-center pt-3'>
+              <button className='w-[140px] h-[50px] rounded-lg bg-green-500 hover:bg-green-400'>Timestamp</button>
+              <button className='w-[140px] h-[50px] rounded-lg bg-red-500 hover:bg-red-400'>My History</button>
             </section>
         </section>
    </main>
