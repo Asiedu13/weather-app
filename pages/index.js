@@ -7,7 +7,7 @@ export default function Home({city, country_code}) {
       <Head>
         <title>Home | Weather App </title>
       </Head>
-      <main className='w-screen h-screen flex flex-row justify-center items-center border-dotted border-2 '>
+      <main className='w-screen h-screen flex flex-row justify-center items-center border-dotted border-2 p-4 '>
         {/* Location and Date */}
         <section className="w-[fit-content] h-1/2">
               <section className='py-4'>
