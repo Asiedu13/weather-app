@@ -1,7 +1,10 @@
 import Head from 'next/head';
 import Image from 'next/image'
 export default function Home({city, country_code}) {
-  console.log(city)
+  
+  const dateString = new Date().toDateString(' ').split(' ')
+  const today = `${dateString[2]} ${dateString[1]} ${dateString[3]}`
+  
   return (
     <>
       <Head>
@@ -12,7 +15,7 @@ export default function Home({city, country_code}) {
         <section className="w-[fit-content] h-1/2">
               <section className='py-4'>
                 <h1 className='text-7xl font-bold pb-5 '> {city}, {country_code}</h1>
-                <p>4 May, 2023</p>
+                <p> {today}</p>
               </section>
 
         {/* Temperature reading and cloud adjust */}
