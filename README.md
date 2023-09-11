@@ -17,8 +17,6 @@ This is a application that allows you to view weather information about your cur
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
 ## Overview
 An application that takes uses gives weather information based on your location data.
 ### The challenge
