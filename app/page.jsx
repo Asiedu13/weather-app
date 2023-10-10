@@ -43,7 +43,7 @@ const Home = () => {
         const options = {
           method: "GET",
           headers: {
-            "X-RapidAPI-Key": process.env.rapidAPIKey,
+            "X-RapidAPI-Key": process.env.NEXT_PUBLIC_rapidAPIKey,
             "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com",
           },
         };
