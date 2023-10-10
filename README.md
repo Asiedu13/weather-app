@@ -16,6 +16,7 @@ This is a application that allows you to view weather information about your cur
   - [Useful resources](#useful-resources)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
+- [API(s) used](#apis-used)
 
 ## Overview
 An application that takes uses gives weather information based on your location data.
@@ -57,7 +58,7 @@ I then wrote code for everything planned and still planning
 - Weather API on RapidAPI platform
 - GeolocationAPI
 
-### What I learned
+## What I learned
 
 This project helped me learn about the various features of Next. From file based routing to all the optimizations Next undertakes to keep the application fast at all levels.
 
@@ -78,18 +79,20 @@ This project also allowed me to
 ```
 
 
-### Continued development
+## Continued development
 Further on in this project, I would like to
 - Access to location data of different locations
 - Keep a list favourite locations
 - Provide more information on the weather of a location
 - Important world events that ocurred with specific weather conditions
 
-### Useful resources
+## Useful resources
 
 - [Tailwind official docs](https://tailwindcss.com/docs/installation) - This helped me with using tailwindcss for the project. I really liked the simplicity and the ctrl + K shortcut for searching.
 - [Weather API](https://rapidapi.com/weatherapi/api/weatherapi-com) - This is an amazing API for finding current and historical data on the weather of a location. I'd recommend this to anyone that would want such data.
 - [VERCEL DEPLOYMENT Intricacies](https://vercel.com/docs/projects/environment-variables/system-environment-variables) - This article talks about the configurations required for certain features such as env files with vercel
+
+- [React Suspense Fetch Patterns ](https://blog.logrocket.com/data-fetching-react-suspense/)
 
 
 **However, I am open to alternatives so reach out to me if you have any.**
@@ -107,6 +110,7 @@ Further on in this project, I would like to
 
 https://stackabuse.com/guide-to-getting-started-with-nextjs-create-a-nextjs-app/
 
-### APIs Used
-(RapidAPI Weather API)[https://rapidapi.com/weatherapi/api/weatherapi-com]
-(IP Locator)[https://www.geoapify.com/]
+https://vercel.com/guides/how-to-add-vercel-environment-variables
+
+### API(s) Used
+[RapidAPI Weather API](https://rapidapi.com/weatherapi/api/weatherapi-com)
