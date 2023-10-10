@@ -5,51 +5,66 @@ import { useEffect, useState } from "react";
 import { saveWeather } from "./utils/functions";
 
 
-const myPromise = new Promise((resolve, reject) => {
-      if ("geolocation" in navigator) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-          resolve({
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-          });
-        });
-      }
-    });
-
 const Home = () => {
   const [locationData, setLocationData] = useState({});
 
-  useEffect(() => {
-      myPromise.then( async (data) => {
-           const url = `https://weatherapi-com.p.rapidapi.com/current.json?q=${data.lat}%2C${data.lng}`;
-        const options = {
-            method: "GET",
-            headers: {
-            "X-RapidAPI-Key":process.env.rapidAPIKey,
-            "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com",
+    useEffect( () => {
+      const myPromise = new Promise((resolve, reject) => {
+        if ("geolocation" in navigator) {
+          // Prompt user for permission to access their location
+          navigator.geolocation.getCurrentPosition(
+            // Success callback function
+            (position) => {
+              // Get the user's latitude and longitude coordinates
+              const lat = position.coords.latitude;
+              const lng = position.coords.longitude;
+              resolve({
+                lat,
+                lng,
+              });
+
+              // Do something with the location data, e.g. display on a map
+              console.log(`Latitude: ${lat}, longitude: ${lng}`);
             },
+            // Error callback function
+            (error) => {
+              // Handle errors, e.g. user denied location sharing permissions
+              console.error("Error getting user location:", error);
+            }
+          );
+        } else {
+          // Geolocation is not supported by the browser
+          console.error("Geolocation is not supported by this browser.");
+        }
+      });
+    myPromise
+      .then(async (data) => {
+        const url = `https://weatherapi-com.p.rapidapi.com/current.json?q=${data.lat}%2C${data.lng}`;
+        const options = {
+          method: "GET",
+          headers: {
+            "X-RapidAPI-Key": process.env.rapidAPIKey,
+            "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com",
+          },
         };
 
         try {
-            const response = await fetch(url, options);
-            const result = await response.json();
-            return result
+          const response = await fetch(url, options);
+          const result = await response.json();
+          return result;
         } catch (error) {
-            console.error(error);
-        } 
+          console.error(error);
+        }
+      })
+      .then((d) => {
+        setLocationData(d);
+      });
+  }, []);
 
-         
-      } ).then( d => {
-          setLocationData( d );
-          
-      } )
-  }, [] );
-    
-     if (!locationData.current) {
-       return <h2>Loading...</h2>;
-     }
-   
-   
+  if (!locationData.current) {
+    return <h2>Loading...</h2>;
+  }
+
   return (
     <>
       <main className="w-screen h-screen flex flex-row justify-center items-center border-dotted border-2 p-4 ">
