@@ -1,7 +1,7 @@
 # Weather App v2.0
 
 
-This is a application that allows you to view weather information about your current location. 
+This is an application that allows you to view weather information about your current location. 
 
 ## Table of contents
 
