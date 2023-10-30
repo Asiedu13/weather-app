@@ -1,4 +1,5 @@
-export default function HistoryCard(props) {
+"use client"
+export default function HistoryCard( props ) {
   return (
     <section className="rounded-sm bg-neutral-50 text-neutral-950 w-[inherit] h-[210px] mb-4">
       {/* Time */}
