@@ -70,7 +70,7 @@ const Home = () => {
 
   return (
     <>
-      <main className="w-screen h-screen flex flex-row justify-center items-center border-dotted border-2 p-4 ">
+      <main className="w-screen h-screen flex flex-row justify-center items-center p-4 ">
         {/* Location and Date */}
         <section className="w-[fit-content] h-1/2">
           <section className="py-4">
