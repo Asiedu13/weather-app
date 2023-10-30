@@ -41,7 +41,7 @@ export default function HistoryHome() {
                   <HistoryCard data={t} key={Math.random() * Math.random()} />
                   );
                 })
-                : ""}
+                : <div><p className="text-[white]">Record events to see them here</p></div>}
             </Suspense>
           </section>
         </section>
