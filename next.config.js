@@ -1,19 +1,23 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const withPWA = require('next-pwa')({
+  dest: 'public',
+
+})
+const nextConfig = withPWA({
   reactStrictMode: true,
   images: {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "*",
+        hostname: "cdn.weatherapi.com",
         port: "",
-        pathname: "/account123/**",
+        pathname: "/weather/**",
       },
     ],
   },
 
 
   
-};
+});
 
 module.exports = nextConfig
