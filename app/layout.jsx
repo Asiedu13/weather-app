@@ -43,7 +43,7 @@ export const metadata = {
     type: 'website',
   },
   twitter: {
-    card: 'Weather_App_Summary',
+    card: 'summary',
     title: 'AlephCore Weather App',
     description: 'The best simple weather app out there',
     siteId: '1467726470533754880',
