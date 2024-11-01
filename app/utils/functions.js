@@ -1,3 +1,11 @@
+export const OPTIONS = {
+  method: "GET",
+    headers: {
+      "X-RapidAPI-Key": process.env.NEXT_PUBLIC_rapidAPIKey,
+      "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com",
+  },
+};
+
 export const saveWeather = (city, code, date, temperature, description) => {
   let hours = new Date().getHours().toString().padStart(2, "0");
   let mins = new Date().getMinutes().toString().padStart(2, "0");
