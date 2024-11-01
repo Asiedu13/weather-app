@@ -5,7 +5,7 @@
     "background_color": "#FFFFFF",
     "icons": [
         {
-            "src": "icons/1.png",
+            "src": "icons/384x384.png",
             "sizes": "384x384",
             "type": "image/png",
             "purpose": "maskable any"
