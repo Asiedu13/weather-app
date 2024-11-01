@@ -33,3 +33,4 @@ export const saveWeather = (city, code, date, temperature, description) => {
     localStorage.setItem("weatherHistory", JSON.stringify(existingData));
   }
 };
+
