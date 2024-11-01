@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const { addIconSelectors } = require('@iconify/tailwind');
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -7,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        'primary': 'var(--primary)'
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
@@ -14,5 +18,7 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    addIconSelectors(['tabler', 'fluent', 'solar']),
+  ],
 }

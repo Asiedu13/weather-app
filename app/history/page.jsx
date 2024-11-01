@@ -6,10 +6,10 @@ export const metadata = {
     "History of user's various location weather events and happenings",
 };
 
-export default function History() {
+export default function Page() {
   return (
-    <>
+    <main className="w-screen ">
       <HistoryHome />
-    </>
+    </main>
   );
 }
