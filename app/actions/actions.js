@@ -3,7 +3,7 @@
 import webpush from 'web-push';
  
 webpush.setVapidDetails(
-  'mailto:princekofasiedu@gmail.com',
+  'princekofasiedu@gmail.com',
   process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY,
   process.env.NEXT_PUBLIC_VAPID_PRIVATE_KEY
 );
@@ -35,7 +35,7 @@ export async function sendNotification(message) {
       JSON.stringify({
         title: 'Test Notification',
         body: message,
-        icon: '/icon.png',
+        icon: '/800x600.png',
       })
     );
     return { success: true };

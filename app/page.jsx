@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link";
-import { Prompter } from "./components/InstallPrompt";
+import { Prompter } from "./components/PushNotificationManager";
 
 export default function Page () {
   return (
