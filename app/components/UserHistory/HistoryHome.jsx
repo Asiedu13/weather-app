@@ -25,7 +25,7 @@ export default function HistoryHome() {
         <section className="w-[fit-content] h-1/2">
           <header className=" flex flex-row items-center">
             <h1 className="text-3xl lg:w-[500px] pb-10">My Weather History</h1>
-            <Link href="/weather">
+            <Link href="/weapp">
               <button className="bg-green-500 hover:bg-green-400 rounded-md  p-2 mb-10">
                 Home
               </button>
