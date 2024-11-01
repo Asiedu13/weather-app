@@ -1,7 +1,4 @@
-"use client"
-
 import Link from "next/link";
-import { Prompter } from "./components/InstallPrompt";
 
 export default function Page () {
   return (
@@ -17,7 +14,6 @@ export default function Page () {
       <Link href="/weapp">
         <span className="bg-white text-primary p-3 rounded-md w-2/6 text-center mt-2 flex gap-2 items-center lg:w-fit lg:px-10">Next <span className="iconify solar--arrow-right-line-duotone text-lg relative"></span> </span>
       </Link>
-      <Prompter />
     </main>
   );
 };
