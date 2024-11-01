@@ -8,8 +8,8 @@ export const metadata = {
 
 export default function History() {
   return (
-    <>
+    <main className="w-screen ">
       <HistoryHome />
-    </>
+    </main>
   );
 }
